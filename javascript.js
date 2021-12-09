@@ -1,3 +1,5 @@
+//These variables are storing the scores.
+
 let round = 0;
 let computerScore = 0;
 let playerScore = 0;
@@ -12,9 +14,7 @@ function computerPlay() {
      return weapons[Math.floor(Math.random() * weapons.length)];
 }
 
-const playerSelection = prompt("Pick your weapon. Rock, Paper or Scissors").toLowerCase();
-const computerSelection = computerPlay();
-
+// This is the game function, this is where the actual game is played
 
     function playRound(playerSelection, computerSelection) {
         const score = {playerScore : 0, computerScore : 0};
@@ -52,6 +52,7 @@ const computerSelection = computerPlay();
             alert("You Win! Scissors beat paper!");
     } 
 }
+// This function is outputting the result at the end.
 
 function result(){
     if  ((tie > playerScore) && (tie > computerScore)){
@@ -65,11 +66,13 @@ function result(){
     }
 }
 
-for (let round = 0; round < 4; round++) {
+// This funtion loops the game 5 times through.
+
+for (let i = 0; i < 4; ++i) {
     let playerSelection = prompt("Rock, Paper or Scissors?");
     let computerSelection = computerPlay();
   
-    playRound(playerSelection, computerSelection)
+    playRound(playerSelection, computerSelection);
 
 }
    
