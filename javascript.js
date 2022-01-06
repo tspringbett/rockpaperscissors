@@ -1,18 +1,26 @@
-//These variables are storing the scores.
-
+let playerSelection = '';
 let round = 0;
 let computerScore = 0;
 let playerScore = 0;
 let tie = 0;
 
-
-
+let computerSelection = computerPlay();
 
 // function used to select the weapon the computer will use
 function computerPlay() {
     const weapons = ["rock", "paper", "scissors"]
-     return weapons[Math.floor(Math.random() * weapons.length)];
-}
+    return weapons[Math.floor(Math.random() * weapons.length)];
+};
+
+const btns = document.querySelectorAll('.choice')
+btns.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    //Player picks Rock/Paper/Scissors
+    playerSelection = btn.textContent;
+    //Plays the game with button click
+    playRound(playerSelection, computerSelection) 
+  })
+});
 
 // This is the game function, this is where the actual game is played
 
@@ -27,7 +35,7 @@ function computerPlay() {
             alert("You Win! Paper beats Rock!");
         }  else if (playerSelection === "paper" && computerSelection === "scissors") {
             computerScore++;
-            alert("You lose! Sciccors beats paper!");
+            alert("You lose! Scissors beats paper!");
         } 
         //rock round
         else if (playerSelection === "rock" && computerSelection === "rock") {
@@ -62,18 +70,18 @@ function result(){
         console.log("You win! Never though this would happend...")
     } 
     else {
-        console.log("HAHAHA, You loser!!")
+        console.log("You lose")
     }
 }
 
 // This funtion loops the game 5 times through.
 
-for (let i = 0; i < 4; ++i) {
-    let playerSelection = prompt("Rock, Paper or Scissors?");
+
+/* for (let i = 0; i < 4; ++i) {
+    let playerSelection = '';
     let computerSelection = computerPlay();
   
     playRound(playerSelection, computerSelection);
-
-}
+    reuslt();
+}; */
    
-result();
